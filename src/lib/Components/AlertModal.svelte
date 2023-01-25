@@ -14,7 +14,6 @@
 {#each $notifications as notification (notification.id)}
 	<div animate:flip transition:fly={{ y: 30 }}>
 		<Alert class="my-2" color={themes[notification.type]}>
-			<span class="font-medium">Info asddds!</span>
 			{notification.message}
 		</Alert>
 	</div>
