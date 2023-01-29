@@ -1,10 +1,13 @@
-import type { Handle } from '@sveltejs/kit'
+import { redirect, type Handle } from '@sveltejs/kit'
 import { PUBLIC_API_URL } from '$env/static/public'
 
 export const handle = (async ({ event, resolve }) => {
 	const session = event.cookies.get('session')
 
 	if (!session) {
+		if (event.url.pathname.startsWith("/profile")) {
+			throw redirect(303, "/login")
+		}
 		return await resolve(event)
 	}
 
