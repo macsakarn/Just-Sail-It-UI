@@ -1,29 +1,29 @@
-import { writable, derived } from 'svelte/store';
+import { writable, derived } from 'svelte/store'
 
 function createNotificationStore() {
-	const _notifications = writable([]);
+	const _notifications = writable([])
 
 	function send(message: string, type = 'info', timeout: number) {
 		_notifications.update((state) => {
-			return [...state, { id: id(), type, message, timeout }];
-		});
+			return [...state, { id: id(), type, message, timeout }]
+		})
 	}
 
 	const notifications = derived(_notifications, ($_notifications, set) => {
-		set($_notifications);
+		set($_notifications)
 		if ($_notifications.length > 0) {
 			const timer = setTimeout(() => {
 				_notifications.update((state) => {
-					state.shift();
-					return state;
-				});
-			}, $_notifications[0].timeout);
+					state.shift()
+					return state
+				})
+			}, $_notifications[0].timeout)
 			return () => {
-				clearTimeout(timer);
-			};
+				clearTimeout(timer)
+			}
 		}
-	});
-	const { subscribe } = notifications;
+	})
+	const { subscribe } = notifications
 
 	return {
 		subscribe,
@@ -32,11 +32,11 @@ function createNotificationStore() {
 		success: (msg: string, timeout: number) => send(msg, 'success', timeout),
 		warning: (msg: string, timeout: number) => send(msg, 'warning', timeout),
 		info: (msg: string, timeout: number) => send(msg, 'info', timeout)
-	};
+	}
 }
 
 function id() {
-	return '_' + Math.random().toString(36).substr(2, 9);
+	return '_' + Math.random().toString(36).substr(2, 9)
 }
 
-export const notifications = createNotificationStore();
+export const notifications = createNotificationStore()

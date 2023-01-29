@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
 export const registerSchema = z.object({
 	pubId: z.string({ required_error: 'Public Address is required' }),
@@ -9,4 +9,4 @@ export const registerSchema = z.object({
 	email: z
 		.string({ required_error: 'Email is required' })
 		.email({ message: 'Email must be a valid email address' })
-});
+})

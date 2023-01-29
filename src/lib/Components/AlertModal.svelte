@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { Alert } from 'flowbite-svelte';
-	import { flip } from 'svelte/animate';
-	import { fly } from 'svelte/transition';
-	import { notifications } from '$lib/notifications.js';
+	import { Alert } from 'flowbite-svelte'
+	import { flip } from 'svelte/animate'
+	import { fly } from 'svelte/transition'
+	import { notifications } from '$lib/notifications.js'
 	export let themes = {
 		danger: 'red',
 		success: 'green',
 		warning: 'yellow',
 		info: 'blue'
-	};
+	}
 </script>
 
 {#each $notifications as notification (notification.id)}

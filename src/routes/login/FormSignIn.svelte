@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { Input, Label, Button, Helper } from 'flowbite-svelte';
-	import type { ActionData } from './$types';
-	export let form: ActionData;
+	import { Input, Label, Button, Helper } from 'flowbite-svelte'
+	import type { ActionData } from './$types'
+	export let form: ActionData
 
-	export let publicAddress = '';
+	export let publicAddress = ''
 
-	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
+	import { createEventDispatcher } from 'svelte'
+	const dispatch = createEventDispatcher()
 
 	function back() {
 		dispatch('back', {
 			page: 1
-		});
+		})
 	}
 </script>
 

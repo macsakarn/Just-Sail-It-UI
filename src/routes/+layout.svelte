@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../app.postcss';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import Alert from '$lib/Components/AlertModal.svelte';
+	import '../app.postcss'
+	import Navbar from './Navbar.svelte'
+	import Alert from '$lib/Components/AlertModal.svelte'
 </script>
 
 <div class="container relative">

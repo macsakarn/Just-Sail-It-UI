@@ -1,28 +1,28 @@
 <script lang="ts">
-	import { Heading, Img } from 'flowbite-svelte';
-	import type { ActionData } from './$types';
-	import FormSignIn from './FormSignIn.svelte';
-	import Stepper from './Stepper.svelte';
-	import WalletConnect from './WalletConnect.svelte';
-	import { enhance } from '$app/forms';
-	import { notifications } from '$lib/notifications';
+	import { Heading, Img } from 'flowbite-svelte'
+	import type { ActionData } from './$types'
+	import FormSignIn from './FormSignIn.svelte'
+	import Stepper from './Stepper.svelte'
+	import WalletConnect from './WalletConnect.svelte'
+	import { enhance } from '$app/forms'
+	import { notifications } from '$lib/notifications'
 
-	export let form: ActionData;
+	export let form: ActionData
 
-	let address = '';
-	let header = ['Connect your wallet', 'Create your account', 'Welcome Pirate '];
-	let step = 0;
+	let address = ''
+	let header = ['Connect your wallet', 'Create your account', 'Welcome Pirate ']
+	let step = 0
 
 	function _handleStep(event: CustomEvent) {
-		step = event.detail.page;
+		step = event.detail.page
 	}
 
 	function _handlePublicAddress(event: CustomEvent) {
-		address = event.detail.address;
+		address = event.detail.address
 	}
 
 	$: if (form?.error.message) {
-		notifications.danger(form?.error.message[0], 3000);
+		notifications.danger(form?.error.message[0], 3000)
 	}
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Wallet, FileEdit, Check } from 'lucide-svelte';
+	import { Wallet, FileEdit, Check } from 'lucide-svelte'
 
-	export let step = 0;
+	export let step = 0
 </script>
 
 <ol class="flex items-center max-w-3xl w-full">
