@@ -40,9 +40,9 @@
 					<span class="block text-sm line-clamp">{$page.data.user.userId} </span>
 					<span class="block truncate text-sm font-medium">{$page.data.user.username}</span>
 				</DropdownHeader>
-				<DropdownItem>Dashboard</DropdownItem>
-				<DropdownItem>Settings</DropdownItem>
-				<DropdownItem>Earnings</DropdownItem>
+				<DropdownItem>Profile</DropdownItem>
+				<DropdownItem>History</DropdownItem>
+				<DropdownItem>Projects</DropdownItem>
 				<DropdownDivider />
 				<form method="POST" action="?/logout">
 					<DropdownItem>Sign out</DropdownItem>
