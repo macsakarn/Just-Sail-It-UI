@@ -9,9 +9,17 @@ declare global {
 				userId: string
 				username: string
 				image: string
+				image_cover: string
 			}
 		}
-		// interface PageData {}
+		interface PageData {
+			user: {
+				userId: string
+				username: string
+				image: string
+				image_cover: string
+			}
+		}
 		// interface Platform {}
 	}
 }
