@@ -17,7 +17,7 @@
 	import { page } from '$app/stores'
 </script>
 
-<Navbar let:hidden let:toggle navClass="fixed top-0 left-0 right-0 drop-shadow-md py-1.5">
+<Navbar let:hidden let:toggle navClass="fixed top-0 left-0 right-0 drop-shadow-md py-1.5 z-50">
 	<NavBrand href="/">
 		<img src="/image/logo.png" class="mr-3 h-6 sm:h-9 rounded-md" alt="Flowbite Logo" />
 	</NavBrand>

@@ -7,7 +7,7 @@
 <div class="container relative">
 	<Navbar />
 </div>
-<div class="pt-20">
+<div class="pt-16">
 	<slot />
 </div>
 
