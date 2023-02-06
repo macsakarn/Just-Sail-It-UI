@@ -3,6 +3,7 @@ import { PUBLIC_API_URL } from '$env/static/public'
 async function fetchApi(
 	method: 'GET' | 'POST' | 'PUT' | 'DELETE',
 	url: string,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	body: any,
 	mode: 'server' | 'api'
 ) {

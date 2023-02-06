@@ -1,6 +1,8 @@
 export async function getCurrentWalletConnected(): Promise<{ address: string; error: boolean }> {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	if ((window as any).ethereum) {
 		try {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			const addressArray: string[] = await (window as any).ethereum.request({
 				method: 'eth_accounts'
 			})
@@ -28,8 +30,10 @@ export async function getCurrentWalletConnected(): Promise<{ address: string; er
 }
 
 export async function getNetworkId(): Promise<{ networkId: string; error: boolean }> {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	if ((window as any).ethereum) {
 		try {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			const networkId = await (window as any).ethereum.request({
 				method: 'eth_chainId'
 			})

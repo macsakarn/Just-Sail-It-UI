@@ -30,19 +30,19 @@ export const actions = {
 	updateEducations: async ({ request, cookies, locals }) => {
 		const data = await request.formData()
 		const education: EducationsType = {
-			id: data.get('id')?.toString()  ?? "",
-			university: data.get('university')?.toString() ?? "",
-			faculty: data.get('faculty')?.toString() ?? "",
-			major: data.get('major')?.toString() ?? "",
-			years: data.get('years')?.toString() ?? ""
+			id: data.get('id')?.toString() ?? '',
+			university: data.get('university')?.toString() ?? '',
+			faculty: data.get('faculty')?.toString() ?? '',
+			major: data.get('major')?.toString() ?? '',
+			years: data.get('years')?.toString() ?? ''
 		}
 
 		const session = cookies.get('session') ?? ''
 
 		if (!education.id) {
 			education.id = crypto.randomUUID()
-			
-			if(!profile.educations){
+
+			if (!profile.educations) {
 				profile.educations = []
 			}
 			profile.educations?.push(education)
@@ -89,7 +89,7 @@ export const actions = {
 
 		if (!workExp.id) {
 			workExp.id = crypto.randomUUID()
-			if(!profile.works_exp){
+			if (!profile.works_exp) {
 				profile.works_exp = []
 			}
 			profile.works_exp?.push(workExp)
@@ -121,7 +121,7 @@ export const actions = {
 	},
 	newSkill: async ({ request, cookies, locals }) => {
 		const skill = (await request.formData()).get('skill')
-		if(!profile.skills){
+		if (!profile.skills) {
 			profile.skills = []
 		}
 		profile.skills?.push(String(skill))
@@ -139,7 +139,7 @@ export const actions = {
 	},
 	newLanguage: async ({ request, cookies, locals }) => {
 		const language = (await request.formData()).get('language')
-		if(!profile.languages){
+		if (!profile.languages) {
 			profile.languages = []
 		}
 		profile.languages?.push(String(language))

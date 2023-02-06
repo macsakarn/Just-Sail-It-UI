@@ -7,16 +7,15 @@
 	import Language from './Language.svelte'
 
 	import { enhance } from '$app/forms'
-	import type { PageData, ActionData } from './$types'
+	import type { PageData } from './$types'
 	export let data: PageData
 	$: profile = data.profile
-	export let form: ActionData
 </script>
 
 <form action="?/updateProfile" method="POST" use:enhance>
 	<div class="container flex gap-10">
 		<div class="basis-3/5">
-			<Info aboutMe={profile.about_me} {form} />
+			<Info aboutMe={profile.about_me} />
 			<form action="?/updateEducations" method="POST" use:enhance>
 				<Education educations={profile.educations} />
 			</form>
@@ -26,8 +25,8 @@
 		</div>
 		<div class="basis-2/5">
 			<Contract {profile} />
-			<Skills skills={profile.skills}/>
-			<Language languages={profile.languages}/>
+			<Skills skills={profile.skills} />
+			<Language languages={profile.languages} />
 		</div>
 	</div>
 </form>

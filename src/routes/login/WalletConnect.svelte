@@ -9,6 +9,7 @@
 	const dispatch = createEventDispatcher()
 
 	async function connectMetaMask() {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		if (!(window as any).ethereum) {
 			notifications.danger("Don't forget to install metamask.", 3000)
 			return
@@ -19,7 +20,7 @@
 			notifications.danger('Please change network to Goerli', 3000)
 			return
 		}
-
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const provider = new ethers.providers.Web3Provider((window as any).ethereum)
 		await provider.send('eth_requestAccounts', [])
 		const signer = provider.getSigner()
