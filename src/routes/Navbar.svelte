@@ -44,7 +44,7 @@
 				<DropdownItem href="/profile/history">History</DropdownItem>
 				<DropdownItem href="/profile/projects">Projects</DropdownItem>
 				<DropdownDivider />
-				<form method="POST" action="/logout">
+				<form method="POST" action="/api/auth/logout">
 					<DropdownItem>Sign out</DropdownItem>
 				</form>
 			</Dropdown>
