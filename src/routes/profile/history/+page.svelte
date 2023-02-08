@@ -15,9 +15,8 @@
 			<TableHeadCell>Date</TableHeadCell>
 			<TableHeadCell>Project Name</TableHeadCell>
 			<TableHeadCell>Donate Amount</TableHeadCell>
-	
 		</TableHead>
-		<TableBody >
+		<TableBody>
 			<TableBodyRow>
 				<TableBodyCell>Apple MacBook Pro 17"</TableBodyCell>
 				<TableBodyCell>Sliver</TableBodyCell>

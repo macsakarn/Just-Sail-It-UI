@@ -43,7 +43,6 @@
 					/>
 				</DropdownItem>
 			</form>
-				
 		</Dropdown>
 		<A aClass="text-xs">@{user.userId}</A>
 		<P size="2xl">{user.username}</P>
