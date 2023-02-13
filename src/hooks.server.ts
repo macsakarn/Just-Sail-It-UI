@@ -7,6 +7,8 @@ export const handle = (async ({ event, resolve }) => {
 	if (!session) {
 		if (event.url.pathname.startsWith('/profile')) {
 			return Response.redirect(event.url.origin + '/login')
+		}else if(event.url.pathname.startsWith('/create')){
+			return Response.redirect(event.url.origin + '/login')
 		}
 		return await resolve(event)
 	}
