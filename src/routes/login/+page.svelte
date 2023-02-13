@@ -26,7 +26,7 @@
 	}
 </script>
 
-<main class="text-center grid place-items-center gap-12">
+<main class="text-center grid place-items-center gap-12 pt-24">
 	<Stepper {step} />
 
 	<Heading tag="h4" color="text-web-black">{header[step]}</Heading>

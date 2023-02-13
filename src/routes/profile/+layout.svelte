@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="h-72  bg-cover bg-no-repeat bg-center mb-28"
+	class="h-72 bg-cover bg-no-repeat bg-center mb-28 mt-14"
 	style="background-image: url({user.image_cover});"
 >
 	<div class="relative -bottom-48 flex flex-col items-center h-auto gap-2">
@@ -62,5 +62,6 @@
 		</a>
 	</Tabs>
 </div>
-
-<slot />
+<div class="container">
+	<slot />
+</div>

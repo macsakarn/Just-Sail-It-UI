@@ -4,7 +4,6 @@
 		NavBrand,
 		NavLi,
 		NavUl,
-		Search,
 		Avatar,
 		NavHamburger,
 		Dropdown,
@@ -13,21 +12,22 @@
 		DropdownHeader,
 		DropdownDivider
 	} from 'flowbite-svelte'
-	import { User } from 'lucide-svelte'
 	import { page } from '$app/stores'
 </script>
 
-<Navbar let:hidden let:toggle navClass="fixed top-0 left-0 right-0 drop-shadow-md py-1.5 z-50">
+<Navbar
+	let:hidden
+	let:toggle
+	navClass="fixed top-0 left-0 right-0 drop-shadow-md py-1.5 z-50 bg-web-white/90"
+	color="form"
+>
 	<NavBrand href="/">
 		<img src="/image/logo.png" class="mr-3 h-6 sm:h-9 rounded-md" alt="Flowbite Logo" />
 	</NavBrand>
-	<div class="flex w-1/2">
-		<Search size="md" placeholder="Search items, collections" />
-	</div>
+
 	<div class="flex items-center order-2">
 		{#if !$page.data.user}
-			<Avatar id="avatar-menu" size="sm"><User /></Avatar>
-			<NavHamburger on:click={toggle} class1="w-full md:flex md:w-auto md:order-1" />
+			<Avatar id="avatar-menu" size="sm" />
 			<Dropdown placement="bottom" triggeredBy="#avatar-menu">
 				<DropdownItem><A href="/login">Login & Register</A></DropdownItem>
 			</Dropdown>
@@ -51,9 +51,26 @@
 		{/if}
 	</div>
 
+	<NavHamburger on:click={toggle} class1="w-full md:flex md:w-auto md:order-1" />
 	<NavUl {hidden}>
-		<NavLi href="/" active={true}>Art</NavLi>
-		<NavLi href="/about">Sofrware</NavLi>
-		<NavLi href="/services">Entertainment</NavLi>
+		<NavLi
+			href="/"
+			active={true}
+			activeClass="text-primary bg-primary-700 md:bg-transparent md:text-primary-700">Home</NavLi
+		>
+		<NavLi
+			href="/art"
+			activeClass="text-primary bg-primary-700 md:bg-transparent md:text-primary-700">Art</NavLi
+		>
+		<NavLi
+			href="/about"
+			activeClass="text-primary bg-primary-700 md:bg-transparent md:text-primary-700"
+			>Sofrware</NavLi
+		>
+		<NavLi
+			href="/services"
+			activeClass="text-primary bg-primary-700 md:bg-transparent md:text-primary-700"
+			>Entertainment</NavLi
+		>
 	</NavUl>
 </Navbar>

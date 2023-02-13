@@ -13,7 +13,7 @@
 </script>
 
 <form action="?/updateProfile" method="POST" use:enhance>
-	<div class="container flex gap-10">
+	<div class="sflex gap-10">
 		<div class="basis-3/5">
 			<Info aboutMe={profile.about_me} />
 			<form action="?/updateEducations" method="POST" use:enhance>

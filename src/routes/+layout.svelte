@@ -2,15 +2,19 @@
 	import '../app.postcss'
 	import Navbar from './Navbar.svelte'
 	import Alert from '$lib/Components/AlertModal.svelte'
+	import FooterBar from './FooterBar.svelte'
 </script>
 
 <div class="container relative">
 	<Navbar />
 </div>
-<div class="pt-16">
-	<slot />
-</div>
 
-<div class="alert">
-	<Alert />
-</div>
+<main>
+	<slot />
+
+	<div class="alert">
+		<Alert />
+	</div>
+</main>
+
+<FooterBar />
