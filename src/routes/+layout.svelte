@@ -5,16 +5,19 @@
 	import FooterBar from './FooterBar.svelte'
 </script>
 
-<div class="container relative">
-	<Navbar />
+<div class="flex flex-col h-screen">
+	<div class="container relative">
+		<Navbar />
+	</div>
+	
+	<main class="flex-1">
+		<slot />
+	
+		<div class="alert">
+			<Alert />
+		</div>
+	</main>
+	
+	<FooterBar />
 </div>
 
-<main>
-	<slot />
-
-	<div class="alert">
-		<Alert />
-	</div>
-</main>
-
-<FooterBar />
