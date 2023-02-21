@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Heading, P, Button, Hr } from 'flowbite-svelte'
+	import { Heading, Button, Hr } from 'flowbite-svelte'
 	import ProjectCard from '$lib/Components/ProjectCard.svelte'
 	import type { PageData } from './$types'
 	export let data: PageData

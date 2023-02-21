@@ -10,7 +10,7 @@ declare global {
 				username: string
 				image: string
 				image_cover: string
-			}
+			} | null
 		}
 		interface PageData {
 			user: {

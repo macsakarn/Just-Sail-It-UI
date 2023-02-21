@@ -9,15 +9,14 @@
 	<div class="container relative">
 		<Navbar />
 	</div>
-	
+
 	<main class="flex-1">
 		<slot />
-	
+
 		<div class="alert">
 			<Alert />
 		</div>
 	</main>
-	
+
 	<FooterBar />
 </div>
-

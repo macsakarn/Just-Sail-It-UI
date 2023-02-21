@@ -28,7 +28,11 @@ const config = {
 		}
 	},
 
-	plugins: [require('flowbite/plugin'), require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
+	plugins: [
+		require('flowbite/plugin'),
+		require('@tailwindcss/line-clamp'),
+		require('@tailwindcss/typography')
+	],
 	darkMode: 'class'
 }
 

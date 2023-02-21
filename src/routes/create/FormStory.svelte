@@ -1,14 +1,38 @@
-<script>
+<script lang="ts">
 	import { Textarea, Tabs, TabItem } from 'flowbite-svelte'
 	import SvelteMarkdown from 'svelte-markdown'
 
-	let markdown = ''
+	import type { ActionData } from './$types'
+	export let form: ActionData
+
+	import { createEventDispatcher } from 'svelte'
+	const dispatch = createEventDispatcher()
+
+	import type { ProjectCreateType } from '$lib/types/ProjectCreate'
+	export let project: ProjectCreateType
+
+	function changeProject(key: string, event: Event) {
+		let update: Record<string, any> = {}
+		let target = event.target as HTMLSelectElement
+		update[key] = target.value
+		markdown = target.value
+		dispatch('editProject', update)
+	}
+
+	let markdown = project.story
 </script>
 
 <Tabs>
 	<TabItem open title="แก้ไข">
 		<label for="story">เรื่องราวของคุณ</label>
-		<Textarea id="story" rows="15" class="mb-4" bind:value={markdown} />
+		<Textarea
+			name="story"
+			rows="15"
+			class="mb-4"
+			value={form?.data.story || project.story}
+			required
+			on:change={(event) => changeProject('story', event)}
+		/>
 	</TabItem>
 	<TabItem title="ตัวอย่าง">
 		<div class="prose">

@@ -10,8 +10,9 @@
 	}
 </script>
 
-<Card href="/{data.id}" class="card-zoom" padding="none" size="xs" border shadow>
-	<div class="card-zoom-image bg-[url('{data.image}')]" />
+<!-- href="/{data.id}" -->
+<Card class="card-zoom" padding="none" size="xs" border shadow>
+	<div class="card-zoom-image bg-[url('https://source.unsplash.com/random')]" />
 	<div class="p-5 absolute bottom-0  bg-web-white/70">
 		<Heading tag="h6" class="mb-2" color="text-web-black">{data.title}</Heading>
 		<P weight="light" class="line-clamp-2 mb-2" color="text-web-black">{data.description}</P>

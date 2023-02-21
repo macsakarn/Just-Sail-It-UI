@@ -3,14 +3,16 @@
 	import { createEventDispatcher } from 'svelte'
 	import { notifications } from '$lib/notifications'
 	import { fetchApi } from '$lib/fetch'
-	import { getNetworkId } from '$lib/web3'
-	import { ethers } from 'ethers'
+	import { getNetworkId, checkWallet } from '$lib/web3/utils'
+	import { web3 } from '$lib/web3/web3Controller'
+	import type { ethers } from 'ethers'
 	import { goto } from '$app/navigation'
+	import { get } from 'svelte/store'
 	const dispatch = createEventDispatcher()
 
 	async function connectMetaMask() {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		if (!(window as any).ethereum) {
+		if (checkWallet().error) {
 			notifications.danger("Don't forget to install metamask.", 3000)
 			return
 		}
@@ -20,10 +22,11 @@
 			notifications.danger('Please change network to Goerli', 3000)
 			return
 		}
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		const provider = new ethers.providers.Web3Provider((window as any).ethereum)
-		await provider.send('eth_requestAccounts', [])
-		const signer = provider.getSigner()
+
+		await web3.init()
+
+		const signer = get(web3.signer) as ethers.providers.JsonRpcSigner
+
 		const address = await signer.getAddress()
 
 		const res: Response = await fetchApi('POST', '/auth/login', { pubId: address }, 'api')
@@ -38,11 +41,12 @@
 			})
 			return
 		}
-		const response = await res.json()
-		const message = `I am signing my one-time nonce: ${response.nounce}`
-		const signature = await signer.signMessage(message)
 
-		fetchApi('POST', '/login', { signature, pubId: address }, 'server').then((res) =>
+		const response = await res.json()
+
+		const signature = await web3.signMessage(response.nounce)
+
+		fetchApi('POST', '/api/auth/login', { signature, pubId: address }, 'server').then((res) =>
 			goto(res.url, { invalidateAll: true })
 		)
 	}
